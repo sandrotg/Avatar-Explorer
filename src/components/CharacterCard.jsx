@@ -1,40 +1,47 @@
+import { useNavigate } from "react-router-dom";
+import FavoriteButton from "./favoriteButton";
+
 export default function CharacterCard({ character }) {
-  return (
-    <div className="bg-[var(--color-card)] rounded-lg shadow 
-    overflow-hidden flex flex-col
-    hover:shadow-lg hover:scale-[1.02] transition-all duration-300">
+    const navigate = useNavigate();
 
-      {/* Imagen */}
-      <div className="h-48 bg-gray-200">
-        <img
-          src={character.photoUrl || "https://via.placeholder.com/300"}
-          alt={character.name}
-          className="w-full h-full object-cover"
-        />
-      </div>
+    return (
+        <div
+            onClick={() =>
+                navigate(`/characters/${character._id}`, {
+                    state: character,
+                })
+            }
+            className="bg-[var(--color-card)] rounded-lg shadow 
+            overflow-hidden flex flex-col
+            hover:shadow-lg hover:scale-[1.02] transition-all duration-300">
 
-      {/* Contenido */}
-      <div className="p-4 flex flex-col flex-grow">
+            {/* Imagen */}
+            <div className="h-48 bg-gray-200">
+                <img
+                    src={character.photoUrl || "https://picsum.photos/300"}
+                    alt={character.name}
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                        e.target.src = "https://picsum.photos/300";
+                    }}
+                />
+            </div>
 
-        <h2 className="font-bold text-lg text-[var(--color-text)]">
-          {character.name}
-        </h2>
+            {/* Contenido */}
+            <div className="p-4 flex flex-col flex-grow">
 
-        <p className="text-sm text-gray-500 mb-4">
-          {character.affiliation || "Sin afiliación"}
-        </p>
+                <h2 className="font-bold text-lg text-[var(--color-text)]">
+                    {character.name}
+                </h2>
 
-        {/* Botón */}
-        <button
-          className="mt-auto px-4 py-2 rounded 
-          bg-[var(--color-secondary)] text-[var(--color-text)]
-          hover:bg-[var(--color-accent)] hover:text-white
-          transition-all duration-300"
-        >
-          ⭐ Añadir a favoritos
-        </button>
+                <p className="text-sm text-gray-500 mb-4">
+                    {character.affiliation || "Sin afiliación"}
+                </p>
 
-      </div>
-    </div>
-  );
+                {/* Botón */}
+                <FavoriteButton/>
+
+            </div>
+        </div>
+    );
 }

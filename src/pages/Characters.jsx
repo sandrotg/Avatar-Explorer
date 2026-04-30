@@ -4,13 +4,13 @@ import SearchBar from "../components/SearchBar";
 import CharactersDash from "../components/CharactersDash";
 
 export default function Characters() {
-    const {datos, cargando, error} = useFetch("https://last-airbender-api.fly.dev/api/v1/characters?perPage=100");
+    const {datos, cargando, error} = useFetch("https://last-airbender-api.fly.dev/api/v1/characters?perPage=100&page=1");
     const [search, setSearch] = useState("");
     if(error) return <p>Error al cargar</p>
     if(cargando) return <p>Cargando...</p>
     console.log(datos)
     const filteredCharacters = datos.filter((char) => 
-        char.name?.toLowerCase().includes(search.toLocaleLowerCase())
+        char.name?.toLowerCase().includes(search.toLowerCase())
     );
 
     return (
