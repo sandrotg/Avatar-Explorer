@@ -11,7 +11,7 @@ export default function CharacterCard({ character }) {
                     state: character,
                 })
             }
-            className="bg-[var(--color-card)] rounded-lg shadow 
+            className="w-full min-h-[300px]bg-[var(--color-card)] rounded-lg shadow 
             overflow-hidden flex flex-col
             hover:shadow-lg hover:scale-[1.02] transition-all duration-300">
 

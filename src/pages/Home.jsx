@@ -3,7 +3,7 @@ import hero from "../assets/images/hero.png";
 
 export default function Home() {
     return (
-        <div className="relative h-[80vh]">
+        <section className="relative h-[80vh] flex items-center">
 
             {/* Imagen */}
             <img
@@ -17,7 +17,7 @@ export default function Home() {
             />
 
             {/* Contenido */}
-            <div className="relative z-10 p-16">
+            <div className="w-1/2 z-10 p-16">
                 <h1 className="text-5xl font-bold text-[var(--color-text)] max-w-lg">
                     Descubre el mundo de <span className="text-[var(--color-accent)]">Avatar</span>
                 </h1>
@@ -29,6 +29,6 @@ export default function Home() {
                 </Link>
             </div>
 
-        </div>
+        </section>
     )
 }
