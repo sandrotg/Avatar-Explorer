@@ -48,7 +48,9 @@ export default function CharacterDetail() {
                         <h1 className="text-3xl font-bold text-[var(--color-text)]">
                             {character.name}
                         </h1>
-
+                        <h3 className="font-semibold text-[var(--color-accent)]">
+                                Affiliation
+                            </h3>
                         <p className="text-sm text-gray-500">
                             {character.affiliation || "Sin afiliación"}
                         </p>
@@ -77,7 +79,7 @@ export default function CharacterDetail() {
                             </p>
                         </div>
                         
-                        <FavoriteButton/>
+                        <FavoriteButton character={character}/>
                         {/* Botón volver */}
                         <button
                             onClick={() => window.history.back()}

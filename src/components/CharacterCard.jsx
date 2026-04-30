@@ -39,7 +39,7 @@ export default function CharacterCard({ character }) {
                 </p>
 
                 {/* Botón */}
-                <FavoriteButton/>
+                <FavoriteButton character={character}/>
 
             </div>
         </div>

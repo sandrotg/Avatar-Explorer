@@ -6,7 +6,7 @@ export default function SearchBar({ value, onChange }) {
       placeholder="Buscar personaje..."
       value={value}
       onChange={(e) => onChange(e.target.value)}
-      className="w-full max-w-md px-4 py-2 border 
+      className="w-full max-w-md px-4 py-2 my-6 border 
       border-[var(--color-border)] rounded-lg 
       bg-white text-[var(--color-text)]
       focus:outline-none focus:ring-2 
