@@ -1,13 +1,19 @@
-import { useState } from "react";
-import { isFavorite, toggleFavorite } from "../utils/favorites"
+import toast from "react-hot-toast";
+import { useFavorites } from "../context/favoritesContext";
 
 export default function FavoriteButton({character}) {
-    const [fav, setFav] = useState(isFavorite(character._id));
+    const { toggleFavorite, favorites } = useFavorites();
+
+    const isFav = favorites.some(c => c._id === character._id);
 
     const handleClick = (e)=>{
         e.stopPropagation();
         toggleFavorite(character);
-        setFav(!fav);
+        toast(
+            isFav
+            ? `${character.name} eliminado de favoritos ❌`
+            : `${character.name} añadido a favoritos ⭐`
+        )
     }
     return (
         <button
@@ -17,7 +23,7 @@ export default function FavoriteButton({character}) {
           hover:bg-[var(--color-accent)] hover:text-white
           transition-all duration-300"
         >
-            {fav ? "⭐ Quitar de favoritos" : "⭐ Añadir a favoritos"}
+            {isFav ? "⭐ Quitar de favoritos" : "⭐ Añadir a favoritos"}
         </button>
     )
 }

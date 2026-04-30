@@ -3,18 +3,19 @@ import notFound from "../assets/images/notFound2.jpg";
 
 export default function NotFound() {
   return (
-    <section className="min-h-screen bg-[var(--color-bg)] flex flex-col justify-center items-center text-center p-10">
+    <section className="min-h-screen bg-[var(--color-bg)] flex justify-center items-center text-center p-10 gap-10">
 
       {/* Imagen */}
-      <div className="max-w-md w-full mb-6">
+      <div className="max-w-2xl w-full mb-6">
         <img
           src={notFound}
           alt="Página no encontrada"
           className="w-full h-auto object-cover rounded-xl shadow"
         />
       </div>
-
-      {/* Texto */}
+    
+      <div className="flex flex-col items-center gap-4">
+        {/* Texto */}
       <h1 className="text-6xl font-bold text-[var(--color-accent)]">
         404
       </h1>
@@ -24,18 +25,19 @@ export default function NotFound() {
       </h2>
 
       <p className="text-gray-600 mt-2 max-w-md">
-        La ruta que buscas no existe en este universo. Tal vez el Avatar aún no la ha descubierto.
+        Has salido de los cuatro elementos...
       </p>
 
       {/* Botón */}
       <Link
         to="/"
         className="mt-6 px-6 py-3 rounded font-bold text-white 
-        bg-[var(--color-accent)] hover:opacity-90 transition"
+        bg-[var(--color-accent)] hover:opacity-90 hover:scale-105 transform transition"
       >
         Volver al inicio
       </Link>
 
+      </div>
     </section>
   );
 }

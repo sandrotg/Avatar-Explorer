@@ -87,7 +87,7 @@ export default function Contact() {
 
             {/* Modal */}
             {showModal && (
-                <ConfirmModal onClose={() => setShowModal(false)} />
+                <ConfirmModal isOpen={showModal} onClose={() => setShowModal(false)} />
             )}
 
         </section>

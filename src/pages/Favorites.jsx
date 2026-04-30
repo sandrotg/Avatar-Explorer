@@ -1,13 +1,10 @@
 import { useEffect, useState } from "react";
 import { getFavorites } from "../utils/favorites";
 import CharactersDash from "../components/CharactersDash";
+import { useFavorites } from "../context/favoritesContext";
 
 export default function Favorites(){
-    const [favorites, setFavorites] = useState([]);
-
-    useEffect(() => {
-        setFavorites(getFavorites());
-    }, []);
+    const { favorites } = useFavorites();
 
     return (
     <section className="p-16 bg-[var(--color-bg)] min-h-screen">

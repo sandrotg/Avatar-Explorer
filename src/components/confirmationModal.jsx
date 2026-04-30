@@ -1,8 +1,22 @@
-export default function ConfirmModal({ onClose }) {
-  return (
-    <div className="fixed inset-0 bg-black/40 flex justify-center items-center z-50">
+import { useEffect, useRef } from "react";
 
-      <div className="bg-white p-6 rounded-lg shadow-xl max-w-sm w-full text-center">
+export default function ConfirmModal({ isOpen, onClose }) {
+  const dialogRef = useRef(null);
+
+  useEffect(() => {
+    if (isOpen) {
+      dialogRef.current.showModal(); 
+    } else {
+      dialogRef.current.close();
+    }
+  }, [isOpen]);
+
+  return (
+    <dialog
+      ref={dialogRef}
+      className="rounded-xl p-0 backdrop:bg-black/40"
+    >
+      <div className="bg-[var(--color-card)] p-6 rounded-xl max-w-sm w-full text-center">
 
         <h2 className="text-xl font-bold mb-4">
           ¿Seguro que quieres enviar?
@@ -31,6 +45,6 @@ export default function ConfirmModal({ onClose }) {
         </div>
 
       </div>
-    </div>
+    </dialog>
   );
 }
