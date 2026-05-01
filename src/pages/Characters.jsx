@@ -6,7 +6,7 @@ import NationFilter from "../components/NationFilter";
 import noCharacters from "../assets/images/noCharacters.jpg";
 
 export default function Characters() {
-    const { datos, cargando, error } = useFetch("https://last-airbender-api.fly.dev/api/v1/characters?perPage=100&page=1");
+    const { datos, cargando, error } = useFetch("https://last-airbender-api.fly.dev/api/v1/characters?perPage=100");
     const [search, setSearch] = useState("");
     const [nation, setNation] = useState("All");
     if (error) return <p>Error al cargar</p>

@@ -27,7 +27,7 @@ export default function ConfirmModal({ isOpen, onClose }) {
         </p>
 
         <div className="flex justify-center gap-4">
-
+          //la idea es sugestionar al uuario para que sí envíe el mensaje, ya que no enviarlo se siente como la opción "mala" gracias al emoji y al mensaje del botón
           <button
             onClick={onClose}
             className="px-4 py-2 rounded bg-gray-300 hover:bg-gray-400"
