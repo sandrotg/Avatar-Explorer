@@ -3,13 +3,13 @@ import hero from "../assets/images/hero.png";
 
 export default function Home() {
     return (
-        <section className="relative h-[80vh] flex items-center">
+        <section className="relative min-h-[80vh] flex items-center pt-20 overflow-hidden">
 
             {/* Imagen */}
             <img
                 src={hero}
                 alt="Aang"
-                className="absolute inset-0 w-full h-full object-[center_right]"
+                className="absolute inset-0 w-full h-full object-cover object-[center_right]"
             />
 
             {/* Overlay (desvanecido) */}
@@ -17,7 +17,7 @@ export default function Home() {
             />
 
             {/* Contenido */}
-            <div className="w-1/2 z-10 p-16">
+            <div className="w-full md:w-1/2 z-10 px-6 md:px-16 py-10">
                 <h1 className="text-5xl font-bold text-[var(--color-text)] max-w-lg">
                     Descubre el mundo de <span className="text-[var(--color-accent)]">Avatar</span>
                 </h1>
